@@ -6,8 +6,8 @@ const app = Vue.createApp({
                 link: 'https://via.placeholder.com/150x33',
                 title: 'test link',
             },
-            courseGoalA: 'Learn Vue',
-            courseGoalB: 'Master Vue'
+            courseGoalA: '<span>Learn Vue</span>',
+            courseGoalB: '<i>Master Vue</i>'
         }
     },
     methods: {
