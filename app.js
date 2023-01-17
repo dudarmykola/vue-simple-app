@@ -4,15 +4,17 @@ const app = Vue.createApp({
             courseGoal: 'finish the course',
             linkGoal: {
                 link: 'https://via.placeholder.com/150x33',
-                title: 'test link'
-            }
+                title: 'test link',
+            },
+            courseGoalA: 'Learn Vue',
+            courseGoalB: 'Master Vue'
         }
     },
     methods: {
         outputGoal() {
             const randomNumber = Math.random();
 
-            return ( randomNumber < 0.5) ? 'Learn Vue' : 'Master Vue'
+            return ( randomNumber < 0.5) ? this.courseGoalA : this.courseGoalB
         }
     }
 });
