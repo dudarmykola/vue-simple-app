@@ -3,6 +3,7 @@ const app = Vue.createApp({
         return {
             counter: 0,
             name: '',
+            confirmedName: ''
         }
     },
     methods: {
@@ -16,6 +17,15 @@ const app = Vue.createApp({
             !!e.target.value
                 ? this.name  = e.target.value + suffix
                 : this.name = '';
+        },
+        submitForm() {
+            alert('Hello!')
+        },
+        onRightClick(event) {
+            event.target.style.backgroundColor = '#000';
+        },
+        confirmInput() {
+            this.confirmedName = this.name
         }
     }
 });
