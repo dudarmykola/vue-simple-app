@@ -18,7 +18,14 @@ const app = Vue.createApp({
             }
         }
     },
-    computed: {},
+    computed: {
+        paragraphClasses() {
+            return {
+                demo: true,
+                active: this.active
+            }
+        }
+    },
     methods: {
         add(num) {
             this.counter = this.counter + num;
@@ -35,7 +42,7 @@ const app = Vue.createApp({
         resetInput() {
             this.name = '';
         },
-        isActive() {
+        clickOnP() {
             this.active = !this.active;
         }
     }

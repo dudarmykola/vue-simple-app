@@ -22,8 +22,8 @@
       <button @click="reduce(5)">Subtract 5</button>
       <p v-once
          class="demo">{{ counter }}</p>
-      <p :class="{active: active}"
-         @click="isActive"
+      <p :class="paragraphClasses"
+         @click="clickOnP"
          v-text="counter"></p>
       <input type="text"
              name="name"
