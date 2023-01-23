@@ -1,22 +1,39 @@
 const app = Vue.createApp({
     data() {
         return {
-            courseGoal: 'finish the course',
-            linkGoal: {
-                link: 'https://via.placeholder.com/150x33',
-                title: 'test link',
-            },
-            courseGoalA: '<span>Learn Vue</span>',
-            courseGoalB: '<i>Master Vue</i>'
+            counter: 10,
+            name: ''
         }
     },
-    methods: {
-        outputGoal() {
-            const randomNumber = Math.random();
+    watch: {
+        name(newValue, oldValue) {
+            console.log(oldValue);
 
-            return ( randomNumber < 0.5) ? this.courseGoalA : this.courseGoalB
+            if (newValue === '') {
+                this.fullname = '';
+            } else {
+                this.fullname = newValue + ' ' + 'Dudar';
+            }
+        }
+    },
+    computed: {},
+    methods: {
+        add(num) {
+            this.counter = this.counter + num;
+        },
+        reduce(num) {
+            this.counter = this.counter - num;
+        },
+        submitForm() {
+            alert('Hello!')
+        },
+        onRightClick(event) {
+            event.target.style.backgroundColor = '#000';
+        },
+        resetInput() {
+            this.name = '';
         }
     }
 });
 
-app.mount('#user-goal');
+app.mount('#events');
