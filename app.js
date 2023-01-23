@@ -16,11 +16,7 @@ const app = Vue.createApp({
             }
         }
     },
-    computed: {
-        // fullname() {
-        //     return !this.name ? '' : this.name + ' ' + 'Dudar';
-        // }
-    },
+    computed: {},
     methods: {
         add(num) {
             this.counter = this.counter + num;
