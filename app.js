@@ -2,7 +2,9 @@ const app = Vue.createApp({
     data() {
         return {
             counter: 10,
-            name: ''
+            name: '',
+            active: true,
+            fullname: ''
         }
     },
     watch: {
@@ -32,6 +34,9 @@ const app = Vue.createApp({
         },
         resetInput() {
             this.name = '';
+        },
+        isActive() {
+            this.active = !this.active;
         }
     }
 });
