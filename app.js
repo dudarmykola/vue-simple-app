@@ -2,8 +2,7 @@ const app = Vue.createApp({
     data() {
         return {
             counter: 10,
-            name: '',
-            confirmedName: ''
+            name: ''
         }
     },
     methods: {
@@ -13,19 +12,14 @@ const app = Vue.createApp({
         reduce(num) {
             this.counter = this.counter - num;
         },
-        setName(e, suffix) {
-            !!e.target.value
-                ? this.name  = e.target.value + suffix
-                : this.name = '';
-        },
         submitForm() {
             alert('Hello!')
         },
         onRightClick(event) {
             event.target.style.backgroundColor = '#000';
         },
-        confirmInput() {
-            this.confirmedName = this.name
+        resetInput() {
+            this.name = '';
         }
     }
 });
