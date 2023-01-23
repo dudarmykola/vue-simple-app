@@ -5,6 +5,11 @@ const app = Vue.createApp({
             name: ''
         }
     },
+    computed: {
+        fullname() {
+            return !this.name ? '' : this.name + ' ' + 'Dudar';
+        }
+    },
     methods: {
         add(num) {
             this.counter = this.counter + num;
