@@ -5,10 +5,21 @@ const app = Vue.createApp({
             name: ''
         }
     },
-    computed: {
-        fullname() {
-            return !this.name ? '' : this.name + ' ' + 'Dudar';
+    watch: {
+        name(newValue, oldValue) {
+            console.log(oldValue);
+
+            if (newValue === '') {
+                this.fullname = '';
+            } else {
+                this.fullname = newValue + ' ' + 'Dudar';
+            }
         }
+    },
+    computed: {
+        // fullname() {
+        //     return !this.name ? '' : this.name + ' ' + 'Dudar';
+        // }
     },
     methods: {
         add(num) {
