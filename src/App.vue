@@ -1,9 +1,11 @@
 <template>
-  <h1>{{ title }}</h1>
-  <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale"/>
+  <div class="content">
+    <h1>{{ title }}</h1>
+    <button @click="toggleModal">show modal</button>
   </div>
-  <button @click="toggleModal">show modal</button>
+  <div v-if="showModal">
+    <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>
+  </div>
 </template>
 
 <script>
@@ -27,3 +29,10 @@ export default {
   }
 };
 </script>
+<style>
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
