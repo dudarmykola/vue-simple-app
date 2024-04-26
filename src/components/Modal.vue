@@ -1,8 +1,10 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
-      <h1>{{ header }}</h1>
-      <p class="content">content</p>
+      <slot></slot>
+      <div class="links">
+        <slot name="links"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +35,9 @@ export default {
   margin: 100px auto;
   background: white;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal.sale {
@@ -40,7 +45,7 @@ export default {
   color: white;
 }
 
-.modal.sale h1{
+.modal.sale h1 {
   color: white;
 }
 
@@ -50,5 +55,20 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal :slotted(a) {
+  margin: 10px;
+  padding: 6px;
+  border-radius: 10px;
+  background: #fff;
+  color: dimgray;
+  border: 2px solid dimgray;
+  text-decoration: unset;
 }
 </style>
