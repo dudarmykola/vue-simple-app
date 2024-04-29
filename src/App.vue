@@ -25,7 +25,8 @@
     <div class="actions">
       <button @click="start">play</button>
     </div>
-    <Block v-if="isPlaying" :delay="delay"/>
+    <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
+    <div class="result">Reacion time is {{ score }} ms</div>
   </div>
 
 </template>
@@ -43,8 +44,8 @@ export default {
       showModal: false,
       showModalTwo: false,
       isPlaying: false,
-      delay: null
-
+      delay: null,
+      score: null
     }
   },
   methods: {
@@ -58,6 +59,10 @@ export default {
       this.delay = 2000 + Math.random() * 5000 ;
       this.isPlaying = true;
       console.log(this.delay);
+    },
+    endGame(reactTime) {
+      this.score = reactTime;
+      this.isPlaying = false;
     }
   }
 };
