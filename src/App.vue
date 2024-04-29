@@ -25,8 +25,8 @@
     <div class="actions">
       <button @click="start">play</button>
     </div>
-    <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
-    <div class="result">Reacion time is {{ score }} ms</div>
+    <Block v-if="isPlaying" :delay="delay" @end="endGame" />
+    <Results v-if="showResults" :score="score" />
   </div>
 
 </template>
@@ -34,10 +34,11 @@
 <script>
 import Modal from '@/components/Modal.vue';
 import Block from '@/components/Block.vue';
+import Results from '@/components/Results.vue';
 
 export default {
   name: 'App',
-  components: { Modal, Block },
+  components: { Modal, Block, Results },
   data() {
     return {
       title: 'My first vue app',
@@ -45,7 +46,8 @@ export default {
       showModalTwo: false,
       isPlaying: false,
       delay: null,
-      score: null
+      score: null,
+      showResults: false
     }
   },
   methods: {
@@ -58,11 +60,11 @@ export default {
     start() {
       this.delay = 2000 + Math.random() * 5000 ;
       this.isPlaying = true;
-      console.log(this.delay);
     },
     endGame(reactTime) {
       this.score = reactTime;
       this.isPlaying = false;
+      this.showResults = true;
     }
   }
 };
